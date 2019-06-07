@@ -7,4 +7,4 @@
 
 # Stage Two 
 - Created table for home page to display Title, Producers, Release Date and Favourite Preference
-- Added Favourite Button that when clicked fires an event listener that formats the color, text and changes table position
+- Added Favourite Button that when clicked fires an event listener that formats the color, text and changes row position by favourite selection
