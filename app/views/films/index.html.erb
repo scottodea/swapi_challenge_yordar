@@ -1,1 +1,19 @@
-<%=@film_titles%>
+<h1 class="heading">Star Wars Films</h1>
+  <table id="table">
+  <thead>
+    <th>Film Title</th>
+    <th>Producer</th>
+    <th>Release_Date</th>
+    <th>Preference</th>
+     </thead>
+  <% @film_info.each do |film| %>
+  <tr>
+    <td><%=film['title']%></td>
+    <td><%=film['producer']%></td>
+    <td><%=film['release_date']%></td>
+    <td><button class="favourite">Favourite</td>
+  </tr>
+  <%end%>
+</table>
+
+

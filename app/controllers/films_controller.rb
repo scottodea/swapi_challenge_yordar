@@ -2,9 +2,9 @@ class FilmsController < ApplicationController
   def index
       all_films = SwapiService.films
       films = JSON.parse(all_films)
-      @film_titles = []
+      @film_info = []
       films['results'].each do |film|
-        @film_titles << film["title"]
+        @film_info << film
     end
   end
 end
