@@ -8,5 +8,6 @@
 # Stage Two 
 - Created table for home page to display Title, Producers, Release Date and Favourite Preference
 - Added Favourite Button that when clicked fires an event listener that formats the color, text and changes row position by favourite selection
-- Added local storage functionality. Films can be added and removed upon favouriting/unfavouriting
+- Added local storage functionality. Films can be added to it and removed upon favouriting/unfavouriting
 - Used Regex to remove HTML tag from table cell elements
+- Added function for rows to move upon page load, dependent on preferences selected beforehand in local storage
