@@ -3,6 +3,7 @@
 window.onload = function() {
   initialLoadFav();
   handleFavouriteClick();
+  customModalAlert();
 };
 
 function initialLoadFav() {
@@ -12,12 +13,45 @@ function initialLoadFav() {
     let title = formatCell(table_rows[i].cells[0].outerHTML);
     if (favourite_films.includes(title)) {
       let button = table_rows[i].cells[3].childNodes[0];
-      preference = "Favourite";
+      let preference = "Favourite";
       button.innerText = "Unfavourite";
       button.style.backgroundColor = "#b92f2f";
       moveRow(table_rows[i], preference);
     }
   }
+}
+
+function customModalAlert() {
+  let modal = document.querySelector(".modal");
+  function toggleModal(e) {
+    if (modal.style.display === "none") {
+      modal.style.display = "block";
+      dynamicModalText();
+      modal.addEventListener("click", toggleModal);
+    } else {
+      modal.style.display = "none";
+      removeModalText();
+      modal.removeEventListener("click", toggleModal);
+    }
+  }
+  document.addEventListener("click", function(e) {
+    if (e.target.innerHTML === "Unfavourite") {
+      e.path[0].addEventListener("click", toggleModal(e));
+    }
+  });
+}
+
+function dynamicModalText() {
+  let table_rows = document.querySelector("table").rows;
+  let title = formatCell(table_rows[1].cells[0].outerHTML);
+  let p = document.createElement("P");
+  p.innerText = ` ✅ Added ${title} to Favourites`;
+  document.querySelector(".modal_content").appendChild(p);
+  p.setAttribute("id", "title");
+}
+function removeModalText() {
+  let title = document.getElementById("title");
+  title.parentNode.removeChild(title);
 }
 
 const handleFavouriteClick = () => {
