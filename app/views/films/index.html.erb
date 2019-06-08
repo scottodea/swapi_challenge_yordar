@@ -11,16 +11,18 @@
     </div>
 <table id="table">
   <thead>
+    <th>Episode No.</th>
     <th>Film Title</th>
     <th>Producer</th>
     <th>Release_Date</th>
     <th>Preference</th>
-     </thead>
+  </thead>
   <% @film_info.each do |film| %>
-  <tr>
-    <td><%=film['title']%></td>
-    <td><%=film['producer']%></td>
-    <td><%=film['release_date']%></td>
+  <tr id="table_rows">
+    <td class="cell"><%=film['episode_id']%></td>
+    <td class="cell"><%=film['title']%></td>
+    <td class="cell"><%=film['producer']%></td>
+    <td class="cell"><%=film['release_date']%></td>
     <td><button class="favourite">Favourite</td>
   </tr>
   <%end%>
