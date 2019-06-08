@@ -12,3 +12,8 @@
 - Used Regex to remove HTML tag from table cell elements
 - Added function for rows to move upon page load, dependent on preferences selected beforehand in local storage
 - Added custom modal that displays title on favourite selection
+
+# Stage Three
+- Rows change green on hover to indicate they are clickable
+- Added show method on films controller
+- Used threads to handle multiple API calls
