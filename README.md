@@ -11,3 +11,4 @@
 - Added local storage functionality. Films can be added to it and removed upon favouriting/unfavouriting
 - Used Regex to remove HTML tag from table cell elements
 - Added function for rows to move upon page load, dependent on preferences selected beforehand in local storage
+- Added custom modal that displays title on favourite selection
