@@ -1,0 +1,52 @@
+<div id="container">
+<table>
+<%@text_obj.each do |key, v| %>
+  <tr>
+    <th><%=key%></th>
+    <td><%=v%></td>
+  </tr>
+  <%end%>
+  <tr>
+  <th>characters</th>
+  <td>
+  <%@characters.each do |character|%>
+  <%=character["name"]%> |
+  <%end%>
+  </td>
+  </tr>
+  <tr>
+  <th>planets</th>
+  <td>
+  <%@planets.each do |planet|%>
+  <%=planet["name"]%> |
+  <%end%>
+  </td>
+  </tr>
+  <tr>
+  <th>vehicles</th>
+  <td>
+  <%@vehicles.each do |vehicle|%>
+  <%=vehicle["name"]%> |
+  <%end%>
+  </td>
+  </tr>
+  <tr>
+  <th>starships</th>
+  <td>
+  <%@starships.each do |starship|%>
+  <%=starship["name"]%> |
+  <%end%>
+  </td>
+  </tr>
+  <tr>
+  <th>species</th>
+  <td>
+  <%@species.each do |species|%>
+  <%=species["name"]%> |
+  <%end%>
+  </td>
+  </tr>
+</table>
+ <%= link_to "Back", root_path, id: "back" %>
+ </div>
+

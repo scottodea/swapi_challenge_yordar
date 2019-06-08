@@ -2,7 +2,7 @@
 // All this logic will automatically be available in application.js.
 window.onload = function() {
   initialLoadFav();
-  handleFavouriteClick();
+  handleClick();
   customModalAlert();
 };
 
@@ -12,7 +12,7 @@ function initialLoadFav() {
   for (let i = 0; i < table_rows.length; i++) {
     let title = formatCell(table_rows[i].cells[0].outerHTML);
     if (favourite_films.includes(title)) {
-      let button = table_rows[i].cells[3].childNodes[0];
+      let button = table_rows[i].cells[4].childNodes[0];
       let preference = "Favourite";
       button.innerText = "Unfavourite";
       button.style.backgroundColor = "#b92f2f";
@@ -43,7 +43,7 @@ function customModalAlert() {
 
 function dynamicModalText() {
   let table_rows = document.querySelector("table").rows;
-  let title = formatCell(table_rows[1].cells[0].outerHTML);
+  let title = formatCell(table_rows[1].cells[1].outerHTML);
   let p = document.createElement("P");
   p.innerText = ` ✅ Added ${title} to Favourites`;
   document.querySelector(".modal_content").appendChild(p);
@@ -54,7 +54,7 @@ function removeModalText() {
   title.parentNode.removeChild(title);
 }
 
-const handleFavouriteClick = () => {
+const handleClick = () => {
   document.addEventListener("click", function(e) {
     const { className, innerHTML, style } = e.target;
     const red = "#b92f2f";
@@ -72,6 +72,8 @@ const handleFavouriteClick = () => {
         e.target.innerHTML = "Favourite";
       }
       favourite(row, favourite_films, title, preference);
+    } else if (className === "cell") {
+      changeRoute(formatCell(e.path[1].cells[0].outerHTML));
     }
   });
 };
@@ -109,4 +111,16 @@ function formatCell(cell) {
 
 function getStorage() {
   return JSON.parse(localStorage.getItem("favourite_films")) || [];
+}
+
+function changeRoute(id) {
+  let num;
+  if (+id <= 3) {
+    num = 3;
+  } else if (+id > 3 && +id < 7) {
+    num = -3;
+  } else {
+    num = 0;
+  }
+  window.location = `/films/${+id + num}`;
 }
