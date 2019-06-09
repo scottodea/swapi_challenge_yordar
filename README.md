@@ -18,3 +18,8 @@
 - Added show method on films controller
 - Used threads to handle multiple API calls
 - Added tooltip that displays character bio on hover
+
+# Stage Four 
+- Added search function that filters table based on Title name
+- Refactored Javascript
+- Launched on Heroku
