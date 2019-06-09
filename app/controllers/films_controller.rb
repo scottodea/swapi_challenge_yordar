@@ -14,15 +14,9 @@ class FilmsController < ApplicationController
     @more_calls = []
     @text_obj = {}
     data.each do |key, value|
-      if value.kind_of?(Array)
-        @more_calls << value
-      else 
-        @text_obj[key] = value
-      end
+      value.kind_of?(Array) ? @more_calls << value : @text_obj[key] = value
     end
-    
-    @characters, @planets, @starships, @vehicles, @species  = Array.new(5) { [] }
-    threads = []
+    @characters, @planets, @starships, @vehicles, @species, threads  = Array.new(6) { [] }
     @more_calls.each_with_index do |category, i|
       category.each do |path|
         uri = URI::parse(path).path.gsub("/api","")
