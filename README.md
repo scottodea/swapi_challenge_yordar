@@ -17,3 +17,4 @@
 - Rows change green on hover to indicate they are clickable
 - Added show method on films controller
 - Used threads to handle multiple API calls
+- Added tooltip that displays character bio on hover
