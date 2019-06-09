@@ -1,3 +1,4 @@
+**Heroku App** https://swapi-yordar-challenge.herokuapp.com/
 # Stage one
 
 - Generated new Rails application starwarsapi. Decided to add HTTParty as a dependency for easier api calls
