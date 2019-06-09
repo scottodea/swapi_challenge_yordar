@@ -2,7 +2,6 @@
 // All this logic will automatically be available in application.js.
 document.addEventListener("turbolinks:load", () => {
   initialLoadFav();
-  handleSearch();
 });
 
 function initialLoadFav() {
@@ -24,7 +23,7 @@ function initialLoadFav() {
 
 (function handleClick() {
   document.addEventListener("click", function(e) {
-    const { className, innerHTML, style } = e.target;
+    const { className, innerHTML, style, id } = e.target;
     const red = "#b92f2f";
     const green = "#4caf50";
     let favourite_films = getStorage();
@@ -42,6 +41,8 @@ function initialLoadFav() {
       favourite(row, favourite_films, title, preference);
     } else if (className === "cell") {
       changeRoute(e.path[1].cells[0].textContent);
+    } else if (id === "search") {
+      handleSearch();
     }
   });
 })();
@@ -72,8 +73,8 @@ function moveRow(row, preference) {
 }
 
 function handleSearch() {
-  search = document.querySelector("#search");
-  table = document.querySelector("#table");
+  search = document.getElementById("search");
+  table = document.querySelector("table");
   table_rows = table.rows;
   search.addEventListener("keyup", function(e) {
     for (let i = 1; i < table_rows.length; i++) {
