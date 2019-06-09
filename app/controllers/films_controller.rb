@@ -1,5 +1,4 @@
 class FilmsController < ApplicationController
-  
   def index
       all_films = SwapiService.films
       films = JSON.parse(all_films)
@@ -21,7 +20,7 @@ class FilmsController < ApplicationController
         @text_obj[key] = value
       end
     end
-    @film = data
+    
     @characters, @planets, @starships, @vehicles, @species  = Array.new(5) { [] }
     threads = []
     @more_calls.each_with_index do |category, i|

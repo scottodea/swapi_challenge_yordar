@@ -1,52 +1,63 @@
+<h3><%=@text_obj['title']%></h3>
 <div id="container">
-<table>
-<%@text_obj.each do |key, v| %>
-  <tr>
-    <th><%=key%></th>
-    <td><%=v%></td>
-  </tr>
-  <%end%>
-  <tr>
-  <th>characters</th>
-  <td>
-  <%@characters.each do |character|%>
-  <%=character["name"]%> |
-  <%end%>
-  </td>
-  </tr>
-  <tr>
-  <th>planets</th>
-  <td>
-  <%@planets.each do |planet|%>
-  <%=planet["name"]%> |
-  <%end%>
-  </td>
-  </tr>
-  <tr>
-  <th>vehicles</th>
-  <td>
-  <%@vehicles.each do |vehicle|%>
-  <%=vehicle["name"]%> |
-  <%end%>
-  </td>
-  </tr>
-  <tr>
-  <th>starships</th>
-  <td>
-  <%@starships.each do |starship|%>
-  <%=starship["name"]%> |
-  <%end%>
-  </td>
-  </tr>
-  <tr>
-  <th>species</th>
-  <td>
-  <%@species.each do |species|%>
-  <%=species["name"]%> |
-  <%end%>
-  </td>
-  </tr>
-</table>
- <%= link_to "Back", root_path, id: "back" %>
+  <table>
+  <%@text_obj.each do |key, v| %>
+    <tr>
+      <th><%=key%></th>
+      <td><%=v%></td>
+    </tr>
+    <%end%>
+    <tr>
+    <th>characters</th>
+    <td>
+    <%@characters.each do |character|%>
+    <div class="tooltip">
+       <%=character["name"]%> |
+       <div class="tooltiptext">
+       <p>Height: <%= character['height'] %></p>
+       <p>Mass: <%= character['mass'] %></p>
+       <p>Gender: <%= character['gender'] %></p>
+       <p>Birth Year: <%= character['birth_year'] %></p>
+       <p>Hair Colour: <%= character['hair_color'] %></p>
+       <p>Skin Colour: <%= character['skin_color'] %></p>
+       <p>Eye Colour: <%= character['eye_color'] %></p>
+       </div>
+    </div>
+    <%end%>
+    </td>
+    </tr>
+    <tr>
+    <th>planets</th>
+    <td>
+    <%@planets.each do |planet|%>
+    <%=planet["name"]%> |
+    <%end%>
+    </td>
+    </tr>
+    <tr>
+    <th>vehicles</th>
+    <td>
+    <%@vehicles.each do |vehicle|%>
+    <%=vehicle["name"]%> |
+    <%end%>
+    </td>
+    </tr>
+    <tr>
+    <th>starships</th>
+    <td>
+    <%@starships.each do |starship|%>
+    <%=starship["name"]%> |
+    <%end%>
+    </td>
+    </tr>
+    <tr>
+    <th>species</th>
+    <td>
+    <%@species.each do |species|%>
+    <%=species["name"]%> |
+    <%end%>
+    </td>
+    </tr>
+  </table>
+   <%= link_to "Back", root_path, id: "back" %>
  </div>
-
