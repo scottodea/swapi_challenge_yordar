@@ -21,7 +21,6 @@ class FilmsController < ApplicationController
         @text_obj[key] = value
       end
     end
-    @film = data
     @characters, @planets, @starships, @vehicles, @species  = Array.new(5) { [] }
     threads = []
     @more_calls.each_with_index do |category, i|
