@@ -24,3 +24,5 @@
 - Added search function that filters table based on Title name
 - Refactored Javascript
 - Launched on Heroku
+- Decided to have some fun with adding some Star Wars type fonts and colors
+- Sorted Table to display episodes in correct order
