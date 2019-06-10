@@ -1,11 +1,19 @@
 // Place all the styles related to the films controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url("https://fonts.googleapis.com/css?family=Poller+One&display=swap");
+body {
+  background: black;
+  font-family: "Poller One";
+}
 .heading {
   text-align: center;
+  font-family: "Poller One";
+  color: transparent;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #f8e51f;
 }
 #table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -24,25 +32,42 @@ th {
   text-align: left;
   padding: 8px;
 }
+#showtable {
+  color: #f8e51f;
+}
+#header {
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #f8e51f;
+  font-size: 22px;
+}
+.cell {
+  font-size: 18px;
+  color: #f8e51f;
+}
 .cell:hover {
   cursor: pointer;
 }
 #table_rows:hover {
-  background: rgb(159, 212, 135) !important;
+  background: #042076 !important;
 }
 #back {
-  background-color: #265396;
+  font-family: "Poller One";
+  background-color: #28292b;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #f8e51f;
   border: none;
-  color: white;
   margin-top: 20px;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
 }
 #back:hover {
-  background-color: #0f3877;
+  background-color: #f8e51f;
+  -webkit-text-stroke-color: #000000;
 }
 
 .favourite {
@@ -130,13 +155,13 @@ th {
   border-bottom: 1px dotted black;
 }
 .tooltip:hover {
-  background-color: rgb(236, 236, 236);
+  background-color: #0c45f1;
 }
 
 .tooltiptext {
   visibility: hidden;
   width: 125px;
-  background-color: black;
+  background-color: rgb(44, 44, 44);
   color: rgb(161, 154, 154);
   text-align: center;
   border-radius: 6px;
