@@ -18,6 +18,7 @@
     <th>Release_Date</th>
     <th>Preference</th>
   </thead>
+  <tbody id="rows">
   <% @film_info.each do |film| %>
   <tr id="table_rows">
     <td class="cell"><%=film['episode_id']%></td>
@@ -26,5 +27,6 @@
     <td class="cell"><%=film['release_date']%></td>
     <td><button class="favourite">Favourite</td>
   </tr>
+  </tbody>
   <%end%>
 </table>
