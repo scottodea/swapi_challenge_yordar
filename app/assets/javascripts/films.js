@@ -2,6 +2,7 @@
 // All this logic will automatically be available in application.js.
 document.addEventListener("turbolinks:load", () => {
   initialLoadFav();
+  sortTable();
   rowStripe();
 });
 
@@ -40,7 +41,6 @@ function initialLoadFav() {
         e.target.innerHTML = "Favourite";
       }
       favourite(row, favourite_films, title, preference);
-      rowStripe();
     } else if (className === "cell") {
       changeRoute(e.path[1].cells[0].textContent);
     } else if (id === "search") {
@@ -62,6 +62,8 @@ function favourite(row, favourite_films, title, preference) {
   let index = favourite_films.indexOf(title);
   favourite_films.splice(index, 1);
   localStorage.setItem("favourite_films", JSON.stringify(favourite_films));
+  sortTable();
+  rowStripe();
 }
 
 //If row is favourited move to top of list, when unfavourited move to bottom
@@ -139,4 +141,30 @@ function changeRoute(id) {
     num = 0;
   }
   window.location = `/films/${id + num}`;
+}
+
+function sortTable() {
+  const table = document.querySelector("#table");
+  if (table) {
+    let rows, switching, i, shouldSwitch;
+    switching = true;
+    rows = table.rows;
+    while (switching) {
+      switching = false;
+      for (i = 1; i < rows.length - 1; i++) {
+        shouldSwitch = false;
+        episode_num = rows[i].cells[0].innerText;
+        next_episode_num = rows[i + 1].cells[0].innerText;
+        preference = rows[i].cells[4].innerText;
+        if (episode_num > next_episode_num && preference === "Favourite") {
+          shouldSwitch = true;
+          break;
+        }
+      }
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  }
 }
