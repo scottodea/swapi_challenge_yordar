@@ -2,6 +2,7 @@
 // All this logic will automatically be available in application.js.
 document.addEventListener("turbolinks:load", () => {
   initialLoadFav();
+  rowStripe();
 });
 
 function initialLoadFav() {
@@ -39,6 +40,7 @@ function initialLoadFav() {
         e.target.innerHTML = "Favourite";
       }
       favourite(row, favourite_films, title, preference);
+      rowStripe();
     } else if (className === "cell") {
       changeRoute(e.path[1].cells[0].textContent);
     } else if (id === "search") {
@@ -70,6 +72,14 @@ function moveRow(row, preference) {
   }
   row.parentNode.removeChild(row);
   table.appendChild(row);
+}
+
+function rowStripe() {
+  rows = document.querySelector("table").rows;
+  for (let i = 0; i < rows.length; i += 2) {
+    rows[i].style.background = "white";
+    rows[i + 1].style.background = "grey";
+  }
 }
 
 function handleSearch() {
