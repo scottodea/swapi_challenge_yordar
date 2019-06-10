@@ -77,8 +77,8 @@ function moveRow(row, preference) {
 function rowStripe() {
   rows = document.querySelector("table").rows;
   for (let i = 0; i < rows.length; i += 2) {
-    rows[i].style.background = "white";
-    rows[i + 1].style.background = "grey";
+    rows[i].style.background = "#2c2c2c";
+    rows[i + 1].style.background = "#000000";
   }
 }
 
