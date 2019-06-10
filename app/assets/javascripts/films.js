@@ -51,6 +51,8 @@ function initialLoadFav() {
 //handle row movement and local storage
 function favourite(row, favourite_films, title, preference) {
   moveRow(row, preference);
+  sortTable();
+  rowStripe();
   if (preference === "Favourite") {
     toggleModal();
     favourite_films.push(title);
@@ -62,8 +64,6 @@ function favourite(row, favourite_films, title, preference) {
   let index = favourite_films.indexOf(title);
   favourite_films.splice(index, 1);
   localStorage.setItem("favourite_films", JSON.stringify(favourite_films));
-  sortTable();
-  rowStripe();
 }
 
 //If row is favourited move to top of list, when unfavourited move to bottom
